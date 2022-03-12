@@ -2,3 +2,6 @@
 	path = mycodefiles/public
 	url = https://github.com/VipinVIP/VipinVIP.github.io.git
 	branch = main
+[submodule "mycodefiles/themes/hello-friend-ng"]
+	path = mycodefiles/themes/hello-friend-ng
+	url = https://github.com/rhazdon/hugo-theme-hello-friend-ng.git

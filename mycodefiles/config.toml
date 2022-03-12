@@ -2,13 +2,43 @@ baseURL = 'https://vipinvip.github.io/'
 languageCode = 'en-us'
 title = 'VIPIN K P'
 
-homeSubtitle = "Something i wanna say"
+homeSubtitle = "Something i wanna say, which somehow is not shown :( "
 
-theme        = "hello-friend-ng"
+enableThemeToggle = true  #also not working , idk why
+theme = "hello-friend-ng"
 
-enableSharingButtons = true
+enableSharingButtons = true #this too.. 
+
+
+[params.portrait]
+path = "https://avatars.githubusercontent.com/u/58673683?v=4"
+alt = "Portrait"
+maxWidth = "100px"
 
 [[menu.main]]
-    identifier = "codes"
-    name       = "Codes"
-    url        = "/codes"
+identifier = "codes"
+name = "Codes"
+url = "/codes"
+
+[[menu.main]]
+identifier = "about"
+name = "About Me"
+url = "/about"
+
+[[menu.main]]
+identifier = "projects"
+name = "Projects"
+url = "/projects"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/VipinVIP"
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/VipinVKP"
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/vipin-k-p/"
+[[params.social]]
+name = "email"
+url = "mailto:kpvipin@protonmail.com"

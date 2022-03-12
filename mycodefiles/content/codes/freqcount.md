@@ -3,7 +3,7 @@ title: "Frequency Count"
 date: 2022-03-11T18:28:26+05:30
 ---
 
-```assembly
+```wasm
 
 .model small
 .stack 100H
@@ -15,9 +15,9 @@ newline DB 10,13,'$'
 colon DB ' : $'
 
 str1 DB 50 DUP (?)
-arr2 DB 58 DUP (0)   
+arr2 DB 58 DUP (0)
 
-.code              
+.code
 .startup
 
 MOV DX,OFFSET msg1
@@ -34,7 +34,7 @@ CALL freqdisp       ; Display Freqency
 
 .exit
 
-freqfind PROC NEAR 
+freqfind PROC NEAR
    loopmain:
     MOV DI,OFFSET arr2
     MOV SI,OFFSET str1
@@ -42,7 +42,7 @@ freqfind PROC NEAR
     MOV BX,[SI]
     MOV BH,0
     INC SI
-    
+
     MOV CL,BL
     SUB BL,65        ;Find index value
 
@@ -50,16 +50,16 @@ freqfind PROC NEAR
     INC AL           ;the way like A=0 ,B=1 etc
     MOV [BX+DI],AL   ;and increment the vale there
 
-    
+
     CMP CL,'$'
     JNE loop1
     RET
 freqfind ENDP
 
-freqdisp PROC NEAR 
+freqdisp PROC NEAR
     MOV CX,0
     MOV SI,OFFSET arr2
-    loopv:   
+    loopv:
         MOV AH,0
         MOV AL,[SI]
         CMP AL,0            ;If Char count eql 0
@@ -71,10 +71,10 @@ freqdisp PROC NEAR
         MOV AH,02H          ;Display the Character
         INT 21H             ;According to index
 
-        MOV DX,OFFSET colon  
-        CALL displaymsg     ;Display colon 
-        
-        POP AX              
+        MOV DX,OFFSET colon
+        CALL displaymsg     ;Display colon
+
+        POP AX
         CALL displayAX      ;Display char count
 
         MOV DX,OFFSET newline
@@ -113,8 +113,8 @@ displayAX PROC near USES AX BX CX DX
 
   Back2:
     MOV DX,0
-    DIV BX      ; digit = num%10 
-    PUSH DX     ; num=num/10 push digit 
+    DIV BX      ; digit = num%10
+    PUSH DX     ; num=num/10 push digit
     INC CX      ; count = count+1
     CMP AX,0    ; if num>0 goto back2
     JNE Back2
@@ -130,4 +130,3 @@ displayAX ENDP
 end
 
 ```
-
